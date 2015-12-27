@@ -42,13 +42,25 @@ function listTabs() {
 // Кнопка клика кнопки скачивания раздачи и кнопки "спасибо" сайта http://torrent.mgn.ru
 buttons.ActionButton({
   id: "download-torrent-mgn-ru",
-  label: "Download torrent.mgn.ru",
+  label: "Download and thank torrent from torrent.mgn.ru",
   icon: "./tor_icon.jpg",
   onClick: download_and_thank
 });
 
 function download_and_thank() {
-    // Если страница содержит в uri строку "torrent.mgn.ru"
+    var url_torrent = 'http://torrent.mgn.ru/';
+    var tab = tabs.activeTab;
+
+    // Проверяем что текущая вкладка относится к сайту torrent.mgn.ru
+    if (tab.url.startsWith(url_torrent) == false) {
+        return;
+    }
+
+    tab.attach({
+        //contentScript: script
+        contentScriptFile: "./download_and_thank.js"
+    });
+
     // Кликаем Спасибо: 
     // <span id="VB194836">&nbsp; <img src="images/sps.gif" onclick="this.disabled=true;ajax_do('thanks.php?mode=thank&amp;a=194836');" alt="Спасибо" style="cursor:pointer"></span>
     // id для "спасибо", можно взять из ссылки для скачивания раздачи id=, а можно искать элемент с 
