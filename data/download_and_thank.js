@@ -1,4 +1,4 @@
-// Кликаем, если находим на "Спасибо" и "Скачать раздачу"
+// РљР»РёРєР°РµРј, РµСЃР»Рё РЅР°С…РѕРґРёРј РЅР° "РЎРїР°СЃРёР±Рѕ" Рё "РЎРєР°С‡Р°С‚СЊ СЂР°Р·РґР°С‡Сѓ"
 function getElementByXpath(path) {
     console.log("getElementByXpath.path: " +  path);
     return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -31,11 +31,11 @@ function download_and_thank() {
         return;
     }
 
-    // Благодарим за раздачу
+    // Р‘Р»Р°РіРѕРґР°СЂРёРј Р·Р° СЂР°Р·РґР°С‡Сѓ
     console.log("thank_tag.click()");
     thank_tag.click()
 
-    // Кликаем на скачивание
+    // РљР»РёРєР°РµРј РЅР° СЃРєР°С‡РёРІР°РЅРёРµ
     console.log("download_tag.click()");
     download_tag.click()
 }
